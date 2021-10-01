@@ -1,0 +1,25 @@
+
+input:hover{
+    border:1px solid purple;
+}
+.fullnamediv:focus-within{
+    background-color: rgb(206, 199, 233);
+}
+.Birthdatediv:focus-within{
+    background-color: rgb(206, 199, 233);
+}
+.addressdiv:focus-within{
+    background-color: rgb(206, 199, 233);
+}
+.contactdetaildiv:focus-within{
+    background-color: rgb(206, 199, 233);
+}
+
+select{
+    width:100%;
+    height:40px;
+}
+.required:after {
+    content:" *";
+    color: red;
+  }

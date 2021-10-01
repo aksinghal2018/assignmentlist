@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1000,
+        "name": "A",
+        "phone": 9876756545,
+        "email": "A@xyz.com",
+        "department": "Production",
+        "salary": 40000
+    },
+    {
+        "id": 1001,
+        "name": "B",
+        "phone": 9876756545,
+        "email": "B@xyz.com",
+        "department": "Production",
+        "salary": 40000
+    },
+    {
+        "id": 1002,
+        "name": "C",
+        "phone": 9876756545,
+        "email": "C@xyz.com",
+        "department": "Production",
+        "salary": 45000
+    },
+    {
+        "id": 1003,
+        "name": "CC",
+        "phone": 9876756545,
+        "email": "CC@xyz.com",
+        "department": "Production",
+        "salary": 45000
+    },
+    {
+        "id": 1004,
+        "name": "D",
+        "phone": 9876756545,
+        "email": "D@xyz.com",
+        "department": "Production",
+        "salary": 45000
+    },
+    {
+        "id": 1005,
+        "name": "E",
+        "phone": 9876756545,
+        "email": "E@xyz.com",
+        "department": "Production",
+        "salary": 40000
+    },
+    {
+        "id": 1006,
+        "name": "F",
+        "phone": 9876756545,
+        "email": "F@xyz.com",
+        "department": "Research and Development",
+        "salary": 40000
+    },
+    {
+        "id": 1007,
+        "name": "G",
+        "phone": 9876756545,
+        "email": "G@xyz.com",
+        "department": "Research and Development",
+        "salary": 40000
+    },
+    {
+        "id": 1008,
+        "name": "H",
+        "phone": 9876756545,
+        "email": "H@xyz.com",
+        "department": "Research and Development",
+        "salary": 40000
+    },
+    {
+        "id": 1009,
+        "name": "I",
+        "phone": 9876756545,
+        "email": "I@xyz.com",
+        "department": "Research and Development",
+        "salary": 40000
+    },
+    {
+        "id": 1010,
+        "name": "J",
+        "phone": 9876756545,
+        "email": "J@xyz.com",
+        "department": "Research and Development",
+        "salary": 40000
+    },
+    {
+        "id": 1011,
+        "name": "K",
+        "phone": 9876756545,
+        "email": "K@xyz.com",
+        "department": "Purchasing",
+        "salary": 40000
+    },
+    {
+        "id": 1012,
+        "name": "L",
+        "phone": 9876756545,
+        "email": "L@xyz.com",
+        "department": "Purchasing",
+        "salary": 40000
+    },
+    {
+        "id": 1013,
+        "name": "M",
+        "phone": 9876756545,
+        "email": "M@xyz.com",
+        "department": "Purchasing",
+        "salary": 40000
+    },
+    {
+        "id": 1014,
+        "name": "N",
+        "phone": 9876756545,
+        "email": "N@xyz.com",
+        "department": "Purchasing",
+        "salary": 40000
+    },
+    {
+        "id": 1015,
+        "name": "O",
+        "phone": 9876756545,
+        "email": "O@xyz.com",
+        "department": "Purchasing",
+        "salary": 40000
+    },
+    {
+        "id": 1016,
+        "name": "P",
+        "phone": 9876756545,
+        "email": "P@xyz.com",
+        "department": "Purchasing",
+        "salary": 40000
+    },
+    {
+        "id": 1017,
+        "name": "Q",
+        "phone": 9876756545,
+        "email": "Q@xyz.com",
+        "department": "Marketing ",
+        "salary": 40000
+    },
+    {
+        "id": 1018,
+        "name": "R",
+        "phone": 9876756545,
+        "email": "R@xyz.com",
+        "department": "Marketing ",
+        "salary": 40000
+    }
+    ,    {
+        "id": 1019,
+        "name": "S",
+        "phone": 9876756545,
+        "email": "S@xyz.com",
+        "department": "Human Resource Management.",
+        "salary": 40000
+    }
+]
