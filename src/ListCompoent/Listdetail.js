@@ -8,9 +8,9 @@ export class Listdetail extends Component {
         }
     }
     componentDidMount(){
-
+        
         var data=this.props;
-        var parent=document.querySelector("tbody")
+        var parent=document.getElementById("tbodydata1");
         var parentchild=document.createElement("tr");
         var node1=document.createElement("td")
         node1.appendChild(document.createTextNode(data.id-999));

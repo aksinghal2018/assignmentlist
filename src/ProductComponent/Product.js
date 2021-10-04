@@ -5,9 +5,25 @@ export class Product extends Component {
     constructor(props){
         super(props);
         this.state={
-            itemcount:0
+            itemcount:0,
+            statuspage:0
         }
         this.cartdata=this.cartdata.bind(this)
+        this.homedata=this.homedata.bind(this) 
+        this.decreasecartcount=this.decreasecartcount.bind(this)
+    }
+    componentDidMount(){
+        
+        var node = document.getElementById("products");
+        node.style.display = "none"
+        var node1 = document.getElementById("cart");
+        node1.style.display = "none"
+        var node2 = document.getElementById("listdiv");
+        node2.style.display = "none"
+        var node3 = document.getElementById("applicationdiv");
+        node3.style.display = "block"
+        var node4 = document.getElementById("productdiv");
+        node4.style.display = "none"
     }
     // console.log(products)
     cartdata=()=>{
@@ -16,7 +32,14 @@ export class Product extends Component {
         var node1=document.getElementById("cart");
         node1.style.display="block"
     }
+    homedata=()=>{
+        var node=document.getElementById("products");
+        node.style.display="block"
+        var node1=document.getElementById("cart");
+        node1.style.display="none"
+    }
     addcart=(data)=>{
+        this.setState({statuspage:1})
         var id=data[0]
         var name=data[1]
         if(localStorage.getItem('myCart')!=undefined){
@@ -25,10 +48,10 @@ export class Product extends Component {
             if(index!=-1){
                 arr[index]["quantity"]+=1;
                 localStorage.setItem("myCart",JSON.stringify(arr));
-                alert(name)
+                
             }
             else{
-                arr.push({"id":id,"quantity":0});
+                arr.push({"id":id,"quantity":1});
                 localStorage.setItem("myCart",JSON.stringify(arr));
                 // sessionStorage.setItem("myCart",JSON.stringify(arr));
                 this.setState({itemcount:arr.length})
@@ -37,27 +60,35 @@ export class Product extends Component {
         }
         else{
             var arr=[];
-            arr.push({"id":id,"quantity":10});
-                localStorage.setItem("myCart",JSON.stringify(arr));
-                // sessionStorage.setItem("myCart",JSON.stringify(arr));
-                this.setState({itemcount:1})
-                alert("item added Sucessfully");
-
+            arr.push({"id":id,"quantity":1});
+            localStorage.setItem("myCart",JSON.stringify(arr));
+            // sessionStorage.setItem("myCart",JSON.stringify(arr));
+            this.setState({itemcount:1})
+            alert("item added Sucessfully");
+            
         }
+        var node=document.getElementById(id);
+        node.style.backgroundColor="red";
+        var y = node.childNodes[0];
+        node.removeChild(y);
+        node.appendChild(document.createTextNode("item added"))
     }
-    componentDidMount(){
-        if(localStorage.getItem('myCart')!=undefined){
-            var arr=JSON.parse(localStorage.getItem("myCart"));
-            this.setState({itemcount:arr.length})
-        }
-    }
+    
     clearcart=()=>{
-        
         if(localStorage.getItem('myCart')!=undefined){
             localStorage.removeItem('myCart');
-            this.setState({itemcount:0})
+            this.setState({itemcount:0,statuspage:0})
         }
         
+    }
+    decreasecartcount=()=>{
+        var arr=JSON.parse(localStorage.getItem("myCart"));
+        if(arr.length===0){
+            this.clearcart();
+        }
+        else{
+            this.setState({itemcount:this.state.itemcount-1,statuspage:1})
+        }
     }
     render() {
         // if(this.state.itemcount>2){
@@ -73,7 +104,7 @@ export class Product extends Component {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                 <li className="nav-item active">
-                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="#" onClick={this.homedata} style={{cursor:"pointer"}}>Home <span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#">Features</a>
@@ -82,7 +113,7 @@ export class Product extends Component {
                     <a className="nav-link" href="#">Pricing</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link " onClick={this.cartdata}>Cart<span className="badge badge-light">{this.state.itemcount}</span></a>
+                    <a className="nav-link " onClick={this.cartdata} style={{cursor:"pointer"}}>Cart<span className="badge badge-light">{this.state.itemcount}</span></a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#" onClick={this.clearcart.bind(this)}>clear cart</a>
@@ -95,14 +126,14 @@ export class Product extends Component {
                 <h1>Shopping </h1>
                <div className="row" >
                    
-                  {console.log(JsonData.products)}
+                  
                      
                     {JsonData.products.map(
                         (info)=>{
                             // {alert(info.pname)}
                 return(
                     
-                    <div className="col-lg-4 col-sm-4" >
+                    <div key={info.id} className="col-lg-4 col-sm-4" >
                         <div className="card" style={{"margin":"10px"}}>
                         <img src={`${info.images}`} className="card-img-top"  alt={info.images} style={{"width":"auto","height":"300px"}} />
                         <div className="card-body">
@@ -123,7 +154,7 @@ export class Product extends Component {
                </div>
             </div>
             <div id="cart">
-                <Cart />
+                <Cart statuspage={this.state.statuspage} datafile={JsonData.products} decreasecount={this.decreasecartcount}/>
             </div>
             </>
         )
